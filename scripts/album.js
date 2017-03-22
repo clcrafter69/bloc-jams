@@ -63,7 +63,7 @@ var albumBeyonce = {
      var albumImage = document.getElementsByClassName('album-cover-art')[0];
      var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
      
-     var albumCollection = [albumBeyonce,albumMarconi,albumPicasso];
+     
 
 
 var setCurrentAlbum = function(album) {
@@ -83,10 +83,12 @@ var setCurrentAlbum = function(album) {
  };
  
  window.onload = function() {
-     var number =0;
-     setCurrentAlbum(albumPicasso);
      
-     albumImage.addEventListener("click",function(Event))
+     setCurrentAlbum(albumPicasso);
+     var number =0;
+     var albumCollection = [albumMarconi,albumPicasso];
+     
+     albumImage.addEventListener("click",function(event))
      {
           setCurrentAlbum(albumCollection[number]);
           number++;
