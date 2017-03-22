@@ -81,17 +81,25 @@ var setCurrentAlbum = function(album) {
          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
      }
  };
+
+ var albumCollection = [albumBeyonce,albumMarconi,albumPicasso];
  
  window.onload = function() {
      
      setCurrentAlbum(albumPicasso);
      var number =0;
-     var albumCollection = [albumMarconi,albumPicasso];
-     
-     albumImage.addEventListener("click",function(event))
+         
+     albumImage.addEventListener("click",function(event)
      {
+        
           setCurrentAlbum(albumCollection[number]);
           number++;
-     }
+            
+         if (number >= albumCollection.length)
+             {
+                 number =0;
+             }
+         
+     });
      
  };
