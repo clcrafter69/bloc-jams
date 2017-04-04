@@ -29,12 +29,15 @@ var animatePoints = function() {
  $(window).load(function() {
 //window.onload = function() {
   //  if(window.innerHeight > 950){
-     if($($window).height()>950 {
+     if($(window).height()>950) {
         animatePoints();
-    }
+        }
+     });
+                
     
    // var sellingPoints = document.getElementsByClassName('selling-points')[0];
-    var scrollDistance = $('.sellingPoints').offset().top-$(window).height() +200;
+  //  var scrollDistance = $('.sellingPoints').offset().top - $(window).height() +200;
+   var scrollDistance = $('.selling-points').offset().top - $(window).height() + 200;
   //  var scrollDistance = sellingPoints.getBoundingClientRect().top -window.innerHeight + 200;
     //window.addEventListener('scroll',function(event) {
     // console.log("Current offset from the top is " + sellingPoints.getBoundingClientRect().top + " pixels" );
@@ -45,4 +48,3 @@ var animatePoints = function() {
              animatePoints();
     }
      });
-});
