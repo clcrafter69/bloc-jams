@@ -214,12 +214,12 @@ $(document).ready(function() {
              }
          });*/
           
-         songRows[i].addEventListener('click', function(event) {
+   /*      songRows[i].addEventListener('click', function(event) {
              // Event handler call
              clickHandler(event.target);
          });
           
-     }
+     }*/
            
      
  });
