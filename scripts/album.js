@@ -1,9 +1,18 @@
 //album picasso
 
+var setSong= function(songNumber){
+  currentlyPlayingSongNumber=parseInt(songNumber);
+  currentSongFromAlbum = currentAlbum.songs[songNumber-1];
+    
+};
 
+var getSongNumberCell = function(number){
+    return $('.song-item-number[data-song-number="' + number + '"]');
+};
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
+
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -26,12 +35,14 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 		// Revert to song number for currently playing song because user started playing new song.
 		var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber+ '"]');
 		currentlyPlayingCell.html(currentlyPlayingSongNumber);
+        setSong(songNumber);
 	}
 	if (currentlyPlayingSongNumber!== songNumber) {
 		// Switch from Play -> Pause button to indicate new song is playing.
 		$(this).html(pauseButtonTemplate);
-		currentlyPlayingSongNumber= songNumber;
-        currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+		//currentlyPlayingSongNumber= songNumber;
+        //currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+        setSong(songNumber);
         updatePlayerBarSong();
         
 	} else if (currentlyPlayingSongNumber=== songNumber) {
@@ -127,11 +138,13 @@ var previousSong = function() {
     }
 
     // Save the last song number before changing it
-    var lastSongNumber = currentlyPlayingSongNumber;
+   // var lastSongNumber = currentlyPlayingSongNumber;
+    var lastSongNumber = currentSongIndex + 1;
 
     // Set a new current song
-    currentlyPlayingSongNumber = currentSongIndex + 1;
-    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    //currentlyPlayingSongNumber = currentSongIndex + 1;
+   // currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    setSong(lastSongNumber);
 
     // Update the Player Bar information
     updatePlayerBarSong();
@@ -158,8 +171,9 @@ var nextSong = function() {
     var lastSongNumber = currentlyPlayingSongNumber;
 
     // Set a new current song
-    currentlyPlayingSongNumber = currentSongIndex + 1;
-    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    //currentlyPlayingSongNumber = currentSongIndex + 1;
+    //currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    setSong(songNumber);
 
     // Update the Player Bar information
     updatePlayerBarSong();
